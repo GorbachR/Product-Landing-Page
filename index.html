@@ -44,20 +44,20 @@
 
          <div class="main-content">
             <div class="three-points">
-            <label class="c-d__3-points--labels" for="c-d__3-points--made-by-professionals">
-                <img class="c-d__3-points--images" id="c-d__3-points--made-by-professionals" src="./img/professionals.svg" alt="" />
+            <label class="three-points__labels" for="three-points_1">
+                <img class="three-points__images" id="three-points_1" src="./img/professionals.svg" alt="" />
                 <div class="bold-text">Made by trained professionals</div>
                 The people drafting your plan have years of experience as personal trainers and physical therapists. You
                 will always receive a plan tailored to your requirments and limitations!
             </label>
-            <label class="c-d__3-points--labels" for="c-d__3-points--100-satisfaction">
-                <img class="c-d__3-points--images" id="c-d__3-points--100-satisfaction" src="./img/satisfaction_gurantee.svg" alt="" />
+            <label class="three-points__labels" for="three-points_2">
+                <img class="three-points__images" id="three-points_2" src="./img/satisfaction_gurantee.svg" alt="" />
                 <div class="bold-text">100% Customer satisfaction</div>
                 We have helped countless customers reach their dream pysique. You
                 could be next!
             </label>
-            <label class="c-d__3-points--labels" for="c-d__3-points--money-back-g">
-                <img class="c-d__3-points--images" id="c-d__3-points--money-back-g" src="./img/moneyback.svg" alt="" />
+            <label class="three-points__labels" for="three-points_3">
+                <img class="three-points__images" id="three-points_3" src="./img/moneyback.svg" alt="" />
                 <div class="bold-text">60-Day Money Back Gurantee</div>
                     If you are not satisfied with our service you can cancel your
                     subscription at any point and get your money back
@@ -70,15 +70,8 @@
     <iframe class="video" id="video" width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
         title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-
-    <label class="newsletter" for="form"> Sign up for our Newsletter:
-    <form id="form" action="post" target="https://www.freecodecamp.com/email-submit">
-        <input id="email" type="email" placeholder="Enter E-Mail" />
-
-        <input id="submit" type="submit" />
-    </form>
-    </label>
+        allowfullscreen>
+    </iframe>
 
     <table class="price-table">
         <thead>
@@ -126,11 +119,26 @@
                 <td></td>
             </tr>
         </tbody>
-
     </table>
     </div>
-</div>
+    <footer class="footer">
+        <div class="footer-newsletter">
+            <label class="footer-newsletter__label" for="form"> Sign up for our Newsletter:</label>
+                <form id="form" action="post" target="https://www.freecodecamp.com/email-submit">
+                    <input class="footer__email-input" id="email" type="email" placeholder="Enter Email" />
+            
+                    <input class="footer-newsletter__submit" id="submit" type="submit" value="Subscribe" />
+                </form>
+        </div>
 
+        <div class="footer-links">
+        <a class="footer-link" href="">Privacy</a>
+        <a class="footer-link" href="">Terms</a>
+        <a class="footer-link" href="">Contact</a>
+        <p>© 2022, Gorbach Fitness</p>
+        </div>
+    </footer>
+</div>
 </body>
 
 

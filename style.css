@@ -16,8 +16,8 @@ html {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Roboto,
       "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.4rem;
   letter-spacing: 0.06rem;
+  line-height: 1.4rem;
 }
 
 body {
@@ -39,17 +39,11 @@ body {
   
 }
 
-.main-wrapper > * {
-  margin-bottom: 2.5rem;
-}
-
-
-
 .img-top {
   width: 100%;
   height: 550px;
 
-  grid-row: header-img;
+  grid-area: header-img;
 
   background-image: url(./img/fitness-375472_1920.jpg);
   background-size: cover;
@@ -99,19 +93,20 @@ body {
 
 .nav-items {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 
   list-style: none;
-}
-
-a.nav-link:link {
-  text-decoration: inherit;
   color: var(--text-color);
 }
 
-a.nav-link:visited {
+
+a.nav-link:link {
   text-decoration: inherit;
+}
+
+a.nav-link:visited {
   color: var(--text-color);
 }
 
@@ -121,17 +116,19 @@ a.nav-link:hover {
 
 .main-content {
   width: 100%;
-  grid-row: content;
+  grid-area: content;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 75px;
 }
 
 .main-content > * {
   padding-left: var(--padding-left-right);
   padding-right: var(--padding-left-right);
+  margin-bottom: 75px;
 }
 
 .three-points {
@@ -143,12 +140,12 @@ a.nav-link:hover {
 
 }
 
-.c-d__3-points--labels {
+.three-points__labels {
   max-width: 20ch;
 
 }
 
-.c-d__3-points--images {
+.three-points__images {
   max-width: 8rem;
   margin-top: 1rem;
     
@@ -157,10 +154,6 @@ a.nav-link:hover {
 
 
 .video {
-
-}
-
-.newsletter {
 
 }
 
@@ -192,6 +185,78 @@ a.nav-link:hover {
   filter: invert(62%) sepia(11%) saturate(1933%) hue-rotate(47deg) brightness(97%) contrast(97%);
 }
 
+.footer {
+  --footer-text-color: hsl(215, 14%, 34%);
+  grid-area: footer;
+  height: 350px;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 50%);
+  background-color: #eee;
+  margin-bottom: 0 !important;
+  font-size: 0.8rem;
+}
+
+.footer > * {
+  padding-left: var(--padding-left-right);
+  padding-right: var(--padding-left-right);
+}
+
+.footer-newsletter {
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-newsletter label {
+  font-size: 1.6em;
+}
+
+.footer__email-input {
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  border-bottom: 1px solid var(--footer-text-color);
+  padding: 0.6em 0.4em;
+  width: 16em;
+}
+
+.footer-newsletter__submit {
+  font-size: inherit;
+  padding: 1em;
+  background-color: none;
+  margin-left: 1em;
+  margin-top: 10px;
+}
+
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: var(--footer-text-color);
+}
+
+a.footer-link:link {
+  text-decoration: inherit;
+  width: fit-content;
+}
+
+a.footer-link:visited {
+  color: var(--footer-text-color);
+}
+
+a.footer-link:hover {
+  color: hsl(218, 11%, 65%);
+}
+
+.footer-links p {
+  font-size: 0.6rem;
+}
+
 
 @media (min-width: 0px) {
     html {
@@ -199,15 +264,30 @@ a.nav-link:hover {
     }
   }
   
-  @media (min-width: 400px) {
-    html {
-      font-size: 1.4rem;
-    }
+@media (min-width: 400px) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    
   }
 
-  
-  @media (min-width: 1001px) {
-    html {
-      font-size: 1.6rem;
-    }
+  .nav-items {
+    flex-direction: column;
+    text-align: center;
   }
+
+  .header-img {
+    margin: 0 auto;
+  }
+}
+
+  
+@media (min-width: 1001px) {
+  html {
+    font-size: 1.6rem;
+  }
+}
