@@ -5,22 +5,25 @@
   padding: 0px;
   overflow-x: hidden;
 
+
   --text-color: white;
+  --main-color: #324e7b;
   --padding-left-right: 0.8rem;
   /*Debugging */
   /*outline: 1px solid red; */
 }
 
-
 html {
-  font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Roboto,
-      "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: 0.06rem;
-  line-height: 1.4rem;
+
+
+
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", Roboto,
+  "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.06rem;
+  font-size: 20px;
 
 }
 
@@ -33,58 +36,38 @@ body {
   width: 100%;
   display: grid;
   grid-template-areas: 
-  "header-img"
+  "header"
   "content"
   "footer";
-  
-}
 
-.img-top {
-  width: 100%;
-  height: 550px;
-
-  grid-area: header-img;
-
-  background-image: url(./img/fitness-375472_1920.jpg);
-  background-size: cover;
-  background-color: #0008;
-  background-blend-mode: darken;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.advert-text {
-  max-width: 56ch;
-  color: var(--text-color);
-  padding-left: var(--padding-left-right);
-  padding-right: var(--padding-left-right);
 }
 
 .header {
-  height: 110px;
+  grid-area: header;
+
+  min-height: 80px;
   width: 100%;
-  position: absolute;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: var(--padding-left-right);
-  padding-right: var(--padding-left-right);
+
+}
+
+header img,li {
+  padding-left: calc(var(--padding-left-right) * 2);
+  padding-right: calc(var(--padding-left-right) * 2);
 }
 
 
-
 .header-img {
+  display: block;
+  max-width: 400px;
   height: auto;
-  max-width: 145px;
-  /*hsl(0, 0%, 100%)*/
-  filter: invert(100%) sepia(3%) saturate(7489%) hue-rotate(331deg) brightness(113%) contrast(109%);
 }
 
 .header-img:hover {
   /*hsl(0, 0%, 93%)*/
-  filter: invert(99%) sepia(0%) saturate(5936%) hue-rotate(183deg) brightness(120%) contrast(87%);
 }
 
 .nav-bar {
@@ -93,12 +76,12 @@ body {
 
 .nav-items {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
 
   list-style: none;
-  color: var(--text-color);
+  color: #6b7280;
+  font-weight: bolder;
 }
 
 
@@ -107,11 +90,35 @@ a.nav-link:link {
 }
 
 a.nav-link:visited {
-  color: var(--text-color);
+  color: #6b7280;
 }
 
 a.nav-link:hover {
-  color: hsl(0, 0%, 93%);
+  color: #9ca3af;
+}
+
+
+.img-top {
+  width: 100%;
+  min-height: 550px;
+
+  background-image: url(./img/fitness-375472_1920.jpg);
+  background-size: cover;
+  background-color: #0008;
+  background-blend-mode: darken;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.img-top p {
+  max-width: 56ch;
+  color: var(--text-color);
+  padding-left: var(--padding-left-right);
+  padding-right: var(--padding-left-right);
+
 }
 
 .main-content {
@@ -122,7 +129,6 @@ a.nav-link:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 75px;
 }
 
 .main-content > * {
@@ -159,30 +165,42 @@ a.nav-link:hover {
 
 
 .price-table {
-  overflow-x: auto;
-  border-collapse: collapse; 
   font-size: 0.7rem;
   letter-spacing: normal;
+  border-spacing: 0.4em;
 
 }
 
 .price-table td, th {
-  text-align: center; 
+  text-align: center;
   padding: 0.5rem;
   border: lightgray solid 2px;
 }
 
-.tr:nth-child(1) {
-  text-align: left;
+.price-table td img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  width:0px;
+  height:0px;
 }
 
 
 
 .checkmark {
-  width: 40px;
-  height: auto;
+  background-image: url("./img/checkmark.svg");
+  padding: 20px 20px 20px 20px;
   /*hsl(90, 48%, 47%)*/
   filter: invert(62%) sepia(11%) saturate(1933%) hue-rotate(47deg) brightness(97%) contrast(97%);
+
+}
+
+.crossout {
+  background-image: url("./img/crossout.svg");
+  padding: 15px 20px 20px 15px;
+  /*hsl(0, 72%, 51%)*/
+  filter: invert(23%) sepia(60%) saturate(2026%) hue-rotate(334deg) brightness(110%) contrast(117%);
 }
 
 .footer {
@@ -209,8 +227,8 @@ a.nav-link:hover {
   align-items: center;
 }
 
-.footer-newsletter label {
-  font-size: 1.6em;
+.footer-newsletter p {
+  font-size: 1.5em;
 }
 
 .footer__email-input {
@@ -259,35 +277,39 @@ a.footer-link:hover {
 
 
 @media (min-width: 0px) {
-    html {
-      font-size: 1.1rem;
+    body {
+      font-size: 1em;
     }
   }
   
 @media (min-width: 400px) {
-  html {
-    font-size: 1.4rem;
+  body {
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+
   .header {
-    
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
   }
 
   .nav-items {
     flex-direction: column;
     text-align: center;
+    padding-top: 10px;
   }
 
-  .header-img {
-    margin: 0 auto;
+  .nav-items > * {
+    padding-bottom: 10px;
   }
 }
 
   
 @media (min-width: 1001px) {
-  html {
-    font-size: 1.6rem;
+  body {
+    font-size: 1.2rem;
   }
 }
