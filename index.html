@@ -8,7 +8,6 @@
     <meta name="author" content="Raphael Gorbach" />
     <link rel="stylesheet" href="style.css" />
     <title>Landing Page</title>
-
 </head>
 
 <body>
@@ -20,13 +19,13 @@
             <nav class="nav-bar" id="nav-bar">
                 <ul class="nav-items">
                     <li>
-                        <a class="nav-link" href="">Our values</a>
+                        <a class="nav-link" href="#threepoints">Our values</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="">Video</a>
+                        <a class="nav-link" href="#video">Video</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="">Prices</a>
+                        <a class="nav-link" href="#pricetable">Prices</a>
                     </li>
                 </ul>
             </nav>
@@ -34,11 +33,14 @@
 
          <div class="main-content">
             <div class="img-top">
-                <p>Do you want to reach the natural limit of your pysique? <br>
-                Do you want to have a workout plan specifically tailored to your needs? <br>
-                Then sign up now for the Gorbach Fitness Workout plan!</p>
+                <div>
+                <h1>Get started now on the Gorbach Fitness Training Plan!</h1>
+                <p>✓ Reach the natural limit of your physique </p>
+                <p>✓ Receive a custom workout plan just for you </p>
+                <p>✓ Exclusive Access to Workout Videos </p>
+                </div>
              </div>
-            <div class="three-points">
+            <div class="three-points" id="threepoints">
             <label class="three-points__labels" for="three-points_1">
                 <img class="three-points__images" id="three-points_1" src="./img/professionals.svg" alt="" />
                 <div class="bold-text">Made by trained professionals</div>
@@ -48,8 +50,8 @@
             <label class="three-points__labels" for="three-points_2">
                 <img class="three-points__images" id="three-points_2" src="./img/satisfaction_gurantee.svg" alt="" />
                 <div class="bold-text">100% Customer satisfaction</div>
-                We have helped countless customers reach their dream pysique. You
-                could be next!
+                We have helped countless customers reach their dream pysique. Check out the testimonies of our
+                customers on our website!
             </label>
             <label class="three-points__labels" for="three-points_3">
                 <img class="three-points__images" id="three-points_3" src="./img/moneyback.svg" alt="" />
@@ -58,16 +60,17 @@
                     subscription at any point and get your money back
                     within 60 days!
             </label>
+            </div>
+
+        <div class="video-wrapper">
+            <iframe class="video" id="video" width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+            </iframe>
         </div>
-
-    
-
-    <iframe class="video" id="video" width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-        title="Rick Astley - Never Gonna Give You Up (Official Music Video)" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-    </iframe>
-    <table class="price-table">
+    <div class="price-table-wrapper">
+    <table class="price-table" id="pricetable">
         <thead>
             <tr>
                 <th rowspan="2">Features</th>
@@ -75,28 +78,11 @@
                 <th>Medium Package</th>
                 <th>Advanced Package</th>
             </tr>
-            <tr>
-                <th>10€ per month</th>
-                <th>20€ per month</th>
-                <th>30€ per month</th>
-            </tr>
         </thead>
         <tbody class="price-body">
             <tr>
-                <td>Virtual Coaching</td>
-                <td><img class="crossout" alt=""></td>
-                <td><img class="crossout" alt=""></td>
-                <td><img class="checkmark" alt=""></td>
-            </tr>
-            <tr>
-                <td>Dietary plan</td>
-                <td><img class="crossout" alt=""></td>
-                <td><img class="crossout" alt=""></td>
-                <td><img class="checkmark" alt=""></td>
-            </tr>
-            <tr>
-                <td>Over Text Communication</td>
-                <td><img class="crossout" alt=""></td>
+                <td>Personal workout plan</td>
+                <td data-label="Personal Workout Plan"><img class="checkmark" alt=""></td>
                 <td><img class="checkmark" alt=""></td>
                 <td><img class="checkmark" alt=""></td>
             </tr>
@@ -107,22 +93,51 @@
                 <td><img class="checkmark" alt=""></td>
             </tr>
             <tr>
-                <td>Personal workout plan</td>
+                <td>Over Text Communication</td>
+                <td><img class="crossout" alt=""></td>
                 <td><img class="checkmark" alt=""></td>
                 <td><img class="checkmark" alt=""></td>
+            </tr>
+            <tr>
+                <td>Dietary plan</td>
+                <td><img class="crossout" alt=""></td>
+                <td><img class="crossout" alt=""></td>
                 <td><img class="checkmark" alt=""></td>
+            </tr>
+            <tr>
+                <td>Virtual Coaching</td>
+                <td><img class="crossout" alt=""></td>
+                <td><img class="crossout" alt=""></td>
+                <td><img class="checkmark" alt=""></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p><div class="price-table__price">10€</div> per month</p>
+                    <a href=""><button class="price-table__btn">Subscribe Now</button></a> 
+                </td>
+                <td>
+                    <p><div class="price-table__price">20€</div> per month</p>
+                    <a href=""> <button class="price-table__btn">Subscribe Now</button></a>
+                </td>
+                <td>
+                    <p><div class="price-table__price">30€</div> per month</p>
+                    <a href=""> <button class="price-table__btn">Subscribe Now</button></a>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+</div>
     <footer class="footer">
         <div class="footer-newsletter">
             <p class="footer-newsletter__label" for="form"> Sign up for our Newsletter:</p>
-                <form id="form" action="post" target="https://www.freecodecamp.com/email-submit">
-                    <input class="footer__email-input" id="email" type="email" placeholder="Enter Email" />
-            
-                    <input class="footer-newsletter__submit" id="submit" type="submit" value="Subscribe" />
+            <div class="footer-form-wrapper">
+                <form class="footer-form" id="form" action="post" target="https://www.freecodecamp.com/email-submit">
+                    <input class="footer-form__email-input" id="email" type="email" placeholder="Enter Email" />
+                    <input class="footer-form__submit" id="submit" type="submit" value="Subscribe" />
                 </form>
+            </div>
         </div>
 
         <div class="footer-links">
@@ -134,6 +149,4 @@
     </footer>
 </div>
 </body>
-
-
 </html>

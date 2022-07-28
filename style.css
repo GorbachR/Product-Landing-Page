@@ -1,22 +1,15 @@
-
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
 
-
   --text-color: white;
   --main-color: #324e7b;
   --padding-left-right: 0.8rem;
+  --pricing-table-border-radius: 10px;
   /*Debugging */
   /*outline: 1px solid red; */
-}
-
-html {
-
-
-
 }
 
 body {
@@ -24,12 +17,10 @@ body {
   "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.06rem;
   font-size: 20px;
-
 }
 
 .bold-text {
   font-weight: bold;
-
 }
 
 .main-wrapper {
@@ -39,35 +30,28 @@ body {
   "header"
   "content"
   "footer";
-
 }
 
 .header {
   grid-area: header;
-
   min-height: 80px;
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
-header img,li {
+.header img,li {
   padding-left: calc(var(--padding-left-right) * 2);
   padding-right: calc(var(--padding-left-right) * 2);
 }
 
-
 .header-img {
   display: block;
+  width: 100%;
+  min-width: 250px;
   max-width: 400px;
   height: auto;
-}
-
-.header-img:hover {
-  /*hsl(0, 0%, 93%)*/
 }
 
 .nav-bar {
@@ -78,15 +62,14 @@ header img,li {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
   list-style: none;
   color: #6b7280;
   font-weight: bolder;
 }
 
-
 a.nav-link:link {
   text-decoration: inherit;
+  color: #6b7280;
 }
 
 a.nav-link:visited {
@@ -97,34 +80,32 @@ a.nav-link:hover {
   color: #9ca3af;
 }
 
-
 .img-top {
   width: 100%;
   min-height: 550px;
-
   background-image: url(./img/fitness-375472_1920.jpg);
   background-size: cover;
   background-color: #0008;
   background-blend-mode: darken;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-.img-top p {
-  max-width: 56ch;
+.img-top p, h1 {
   color: var(--text-color);
   padding-left: var(--padding-left-right);
   padding-right: var(--padding-left-right);
+}
 
+.img-top h1 {
+  max-width: 35ch;
+  margin-bottom: 10px;
 }
 
 .main-content {
   width: 100%;
   grid-area: content;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,8 +113,6 @@ a.nav-link:hover {
 }
 
 .main-content > * {
-  padding-left: var(--padding-left-right);
-  padding-right: var(--padding-left-right);
   margin-bottom: 75px;
 }
 
@@ -142,39 +121,69 @@ a.nav-link:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
-
 }
 
 .three-points__labels {
   max-width: 20ch;
-
+  padding-left: var(--padding-left-right);
+  padding-right: var(--padding-left-right);
 }
 
 .three-points__images {
   max-width: 8rem;
   margin-top: 1rem;
-    
+  margin-bottom: 0.5rem;
 }
 
+.video-width {
+  max-width: 560px;
+}
 
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+
+.video-wrapper::before {
+  padding-bottom: 56.25%;
+  /*Equals 16:9 */
+  display: block;
+  content: '';
+}
 
 .video {
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: var(--padding-left-right);
+  padding-right: var(--padding-left-right);
 }
 
+.price-table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+  padding-left: var(--padding-left-right);
+  padding-right: var(--padding-left-right);
+}
 
 .price-table {
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: normal;
-  border-spacing: 0.4em;
+  border-spacing: 0;
+}
 
+.price-table thead, .price-table__price {
+  font-size: 1.4rem;
 }
 
 .price-table td, th {
   text-align: center;
   padding: 0.5rem;
-  border: lightgray solid 2px;
+  border: lightgray solid 1px;
+  max-width: 150px;
 }
 
 .price-table td img {
@@ -186,21 +195,55 @@ a.nav-link:hover {
   height:0px;
 }
 
+.price-table thead, .price-table__btn {
+  color: var(--text-color);
+  background-color: var(--main-color);
+}
 
+.price-table tbody tr:nth-child(odd) {
+  background-color: #e4e4e7;
+}
+
+.price-table__btn {
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding: 0.4rem;
+  border: var(--main-color) solid 1px;
+  border-radius: 7px;
+  box-shadow: 3px 3px 2px #a8a29e;
+}
+
+.price-table__btn:hover {
+  background-color: rgba(50, 78, 123, 0.8);
+}
+
+/*Sets the border radius of table*/
+.price-table tr:first-child th:first-child{
+  border-top-left-radius: var(--pricing-table-border-radius);
+}
+
+.price-table tr:last-child td:first-child{
+  border-bottom-left-radius: var(--pricing-table-border-radius);
+}
+
+.price-table tr:first-child th:last-child{
+  border-top-right-radius: var(--pricing-table-border-radius);
+}
+
+.price-table tr:last-child td:last-child{
+  border-bottom-right-radius: var(--pricing-table-border-radius);
+}
+/**/
 
 .checkmark {
   background-image: url("./img/checkmark.svg");
   padding: 20px 20px 20px 20px;
-  /*hsl(90, 48%, 47%)*/
-  filter: invert(62%) sepia(11%) saturate(1933%) hue-rotate(47deg) brightness(97%) contrast(97%);
-
 }
 
 .crossout {
   background-image: url("./img/crossout.svg");
   padding: 15px 20px 20px 15px;
-  /*hsl(0, 72%, 51%)*/
-  filter: invert(23%) sepia(60%) saturate(2026%) hue-rotate(334deg) brightness(110%) contrast(117%);
 }
 
 .footer {
@@ -231,7 +274,11 @@ a.nav-link:hover {
   font-size: 1.5em;
 }
 
-.footer__email-input {
+.footer-form-wrapper {
+  max-width: 100%;
+}
+
+.footer-form__email-input {
   font-size: inherit;
   border: none;
   outline: none;
@@ -241,7 +288,7 @@ a.nav-link:hover {
   width: 16em;
 }
 
-.footer-newsletter__submit {
+.footer-form__submit {
   font-size: inherit;
   padding: 1em;
   background-color: none;
@@ -249,17 +296,17 @@ a.nav-link:hover {
   margin-top: 10px;
 }
 
-
 .footer-links {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
+  justify-content: flex-end;
+  margin-bottom: 20px;
   color: var(--footer-text-color);
 }
 
 a.footer-link:link {
   text-decoration: inherit;
+  color: var(--footer-text-color);
   width: fit-content;
 }
 
@@ -272,13 +319,13 @@ a.footer-link:hover {
 }
 
 .footer-links p {
+  padding-top: 5px;
   font-size: 0.6rem;
 }
 
-
 @media (min-width: 0px) {
     body {
-      font-size: 1em;
+      font-size: 1rem;
     }
   }
   
@@ -291,7 +338,7 @@ a.footer-link:hover {
 @media (max-width: 700px) {
 
   .header {
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     padding-top: 10px;
   }
@@ -307,7 +354,6 @@ a.footer-link:hover {
   }
 }
 
-  
 @media (min-width: 1001px) {
   body {
     font-size: 1.2rem;
